@@ -10,7 +10,7 @@
 
 
 //Importieren
-#include <iostream>;
+#include <iostream>
 
 
 
@@ -22,11 +22,12 @@ int main(){
     
     //Variablen deklarieren
     int zahl = 1;
-    String zeichen = "Hallo";
+    
     char character = 'A';
     double gleitpunktzahl = 2.3;
     bool boolean = true;
 
+    std::cout << zahl << ","<< boolean<< std::endl;
 
     //Beendet das Programm
     return 0;
