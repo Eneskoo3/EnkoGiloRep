@@ -16,6 +16,18 @@
 
 //Die Main methode:
 int main(){
-    std::cout << "Hello World!"<<std::endl;
+    
+    //Ausgabe in die Console
+    std::cout << "Hello World!" << std::endl;
+    
+    //Variablen deklarieren
+    int zahl = 1;
+    String zeichen = "Hallo";
+    char character = 'A';
+    double gleitpunktzahl = 2.3;
+    bool boolean = true;
+
+
+    //Beendet das Programm
     return 0;
 }
