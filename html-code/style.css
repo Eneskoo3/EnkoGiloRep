@@ -1,0 +1,111 @@
+/* CSS-Variablen für einfache Farbanpassungen */
+:root {
+    --pipboy-green: #2dc56b; /* Das klassische Pip-Boy Grün */
+    --pipboy-dark-green: #1a3a2a;
+    --pipboy-bg: #000000; /* Schwarzer Hintergrund */
+    --glow-color: rgba(45, 197, 107, 0.5);
+}
+
+body {
+    background-color: var(--pipboy-bg);
+    color: var(--pipboy-green);
+    font-family: 'VT323', monospace; /* Die importierte Schriftart */
+    font-size: 22px;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Der Hauptcontainer für den Pip-Boy-Look */
+.pipboy-container {
+    width: 100%;
+    max-width: 800px;
+    border: 3px solid var(--pipboy-green);
+    border-radius: 15px;
+    padding: 1.5rem;
+    background-color: rgba(26, 58, 42, 0.1); /* Sehr dunkler, transparenter Hintergrund */
+    position: relative;
+    overflow: hidden; /* Wichtig für den Scanline-Effekt */
+    box-shadow: 0 0 15px var(--glow-color), inset 0 0 15px var(--glow-color);
+}
+
+/* Der Scanline-Effekt, der über allem liegt */
+.scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        rgba(0, 0, 0, 0.5) 1px,
+        transparent 2px
+    );
+    pointer-events: none; /* Sorgt dafür, dass man durch das Overlay klicken kann */
+    z-index: 2;
+}
+
+/* Leuchteffekt für den gesamten Text */
+h1, h2, h3, p, a, div {
+    text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color);
+}
+
+header, footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--pipboy-green);
+}
+
+footer {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 2px solid var(--pipboy-green);
+    border-bottom: none;
+}
+
+nav a {
+    color: var(--pipboy-green);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+}
+
+/* Der aktive Reiter wird hervorgehoben */
+nav a.active, nav a:hover {
+    background-color: var(--pipboy-green);
+    color: var(--pipboy-bg);
+    text-shadow: none; /* Leuchteffekt entfernen, wenn der Hintergrund hell ist */
+}
+
+main {
+    padding: 1rem 0;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid var(--pipboy-green);
+    margin: 1rem 0;
+}
+
+.content-grid {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Der blinkende Cursor */
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
